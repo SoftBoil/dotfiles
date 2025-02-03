@@ -113,3 +113,8 @@ cd ~
 
 # Created by `pipx` on 2024-12-11 17:59:48
 export PATH="$PATH:$HOME/.local/bin"
+export PYENV_ROOT="$HOME/.pyenv"
+[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init - zsh)"
+
+eval "$(atuin init zsh)"
