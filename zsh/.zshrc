@@ -71,7 +71,7 @@ ZSH_THEME="agnoster"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git fzf zoxide)
+plugins=(git fzf zoxide shrink-path)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -111,6 +111,11 @@ export EZA_CONFIG_DIR=~/.config/eza
 # Force to start in home dir
 cd ~
 
+prompt_dir() {
+  setopt prompt_subst
+  prompt_segment blue $CURRENT_FG "$(shrink_path -f)"
+}
+
 # Created by `pipx` on 2024-12-11 17:59:48
 export PATH="$PATH:$HOME/.local/bin"
 export PYENV_ROOT="$HOME/.pyenv"
@@ -118,3 +123,6 @@ export PYENV_ROOT="$HOME/.pyenv"
 eval "$(pyenv init - zsh)"
 
 eval "$(atuin init zsh)"
+
+# filen-cli
+PATH=$PATH:~/.filen-cli/bin
