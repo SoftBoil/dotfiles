@@ -57,8 +57,8 @@ automatically-unhide-macos-hidden-apps = false
 #                 See:
 #                 https://nikitabobko.github.io/AeroSpace/guide#assign-workspaces-to-monitors
 [gaps]
-    inner.horizontal = 0
-    inner.vertical =   0
+    inner.horizontal = 4
+    inner.vertical =   4
     outer.left =       0
     outer.bottom =     0
     outer.top =        0
@@ -97,30 +97,33 @@ automatically-unhide-macos-hidden-apps = false
     # '''
 
     # See: https://nikitabobko.github.io/AeroSpace/commands#layout
-    alt-ctrl-cmd-t = 'layout tiles horizontal vertical'
-    alt-ctrl-cmd-a = 'layout accordion horizontal vertical'
+    alt-ctrl-cmd-shift-comma = 'layout tiles horizontal vertical'
+    alt-ctrl-cmd-shift-period = 'layout accordion horizontal vertical'
+    alt-ctrl-cmd-shift-slash = 'layout floating tiling'
+
+    # Reset
+    alt-ctrl-cmd-shift-r = 'flatten-workspace-tree'
 
     # See: https://nikitabobko.github.io/AeroSpace/commands#focus
-    alt-ctrl-cmd-h = 'focus left'
-    alt-ctrl-cmd-j = 'focus down'
-    alt-ctrl-cmd-k = 'focus up'
-    alt-ctrl-cmd-l = 'focus right'
+    alt-ctrl-cmd-shift-left     = 'focus left'
+    alt-ctrl-cmd-shift-down     = 'focus down'
+    alt-ctrl-cmd-shift-up       = 'focus up'
+    alt-ctrl-cmd-shift-right    = 'focus right'
 
     # See: https://nikitabobko.github.io/AeroSpace/commands#move
-    alt-ctrl-cmd-left = 'move left'
-    alt-ctrl-cmd-down = 'move down'
-    alt-ctrl-cmd-up = 'move up'
-    alt-ctrl-cmd-right = 'move right'
+    alt-ctrl-cmd-shift-a = 'move left'
+    alt-ctrl-cmd-shift-s = 'move down'
+    alt-ctrl-cmd-shift-w = 'move up'
+    alt-ctrl-cmd-shift-d = 'move right'
 
-    alt-cmd-ctrl-shift-left = ['join-with left', 'mode main']
-    alt-cmd-ctrl-shift-down = ['join-with down', 'mode main']
-    alt-cmd-ctrl-shift-up = ['join-with up', 'mode main']
-    alt-cmd-ctrl-shift-right = ['join-with right', 'mode main']
-
+    alt-cmd-ctrl-a = ['join-with left']
+    alt-cmd-ctrl-s = ['join-with down']
+    alt-cmd-ctrl-w = ['join-with up']
+    alt-cmd-ctrl-d = ['join-with right']
 
     # See: https://nikitabobko.github.io/AeroSpace/commands#resize
-    alt-cmd-ctrl-minus = 'resize smart -50'
-    alt-cmd-ctrl-equal = 'resize smart +50'
+    alt-cmd-ctrl-shift-minus = 'resize smart -50'
+    alt-cmd-ctrl-shift-equal = 'resize smart +50'
 
     # See: https://nikitabobko.github.io/AeroSpace/commands#workspace
     alt-1 = 'workspace 1'
@@ -173,7 +176,12 @@ automatically-unhide-macos-hidden-apps = false
     shift-down = ['volume set 0', 'mode main']
 
 [[on-window-detected]]
-if.app-id="com.mitchellh.ghostty"
+#if.app-id="com.mitchellh.ghostty"
+#run = [
+#    "layout floating",
+#    "move-node-to-workspace 1",
+#]
+if.app-id="com.movist.MovistPro"
 run = [
     "layout floating",
     "move-node-to-workspace 1",
