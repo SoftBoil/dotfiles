@@ -186,3 +186,13 @@ run = [
     "layout floating",
     "move-node-to-workspace 1",
 ]
+[[on-window-detected]]
+if.app-id="com.apple.finder"
+run = [
+    "layout floating",
+]
+[[on-window-detected]]
+if.window-title-regex-substring="noVNC"
+run = [
+    "layout floating",
+]
